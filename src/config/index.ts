@@ -38,7 +38,7 @@ export class ConfigOptions {
  */
 export const getConfigOptions = () => {
   const config: ConfigOptions = {
-    api: { prefix: "/htmx/api" },
+    api: { prefix: "/htmx" },
     app: {
       env: process.env.APP_ENV as AppEnv,
       name: process.env.APP_NAME || "htmx-api",

@@ -1,3 +1,4 @@
+import path from "path";
 import { injectable } from "tsyringe";
 import express from "express";
 import helmet from "helmet";
@@ -36,6 +37,13 @@ export default class ExpressLoader {
       origin: getCorsOrigin(config),
     };
     app.use(cors(corsConfig));
+
+    // view engine setup
+    const parentPath = path.dirname(__dirname).split(path.sep).pop()!;
+    app.set("views", path.join(parentPath, "views"));
+    app.set("view engine", "ejs");
+
+    app.use(express.static(path.join(parentPath, "public")));
 
     // "Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it."
     app.use(require("method-override")());

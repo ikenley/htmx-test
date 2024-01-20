@@ -1,19 +1,19 @@
 import { injectable } from "tsyringe";
 import { Router } from "express";
-import AiController from "../components/ai/AiController";
+import HomeController from "../components/home/HomeController";
 import StatusController from "../components/status/StatusController";
 
 @injectable()
 export default class RouteService {
   constructor(
-    protected aiController: AiController,
+    protected homeController: HomeController,
     protected statusController: StatusController
   ) {}
 
   public registerRoutes() {
     const app = Router();
 
-    this.aiController.registerRoutes(app);
+    this.homeController.registerRoutes(app);
     this.statusController.registerRoutes(app);
 
     return app;
