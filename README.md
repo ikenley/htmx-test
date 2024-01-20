@@ -1,2 +1,3 @@
 # htmx-test
-Playing with htmx with a node backend
+
+Playing with htmx with a TypeScript node backend
