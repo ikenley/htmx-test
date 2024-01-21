@@ -1,9 +1,8 @@
-import { DependencyContainer, injectable } from "tsyringe";
-import { Request, Response, Router } from "express";
-import { CreatePunParams } from "../../types";
+import { injectable } from "tsyringe";
+import { Request, Router } from "express";
+import { ClickedParams } from "../../types";
 import { ConfigOptions } from "../../config";
 //import AuthenticationMiddlewareProvider from "../../auth/AuthenticationMiddlewareProvider";
-import AiService from "./AiService";
 
 const route = Router();
 
@@ -23,11 +22,18 @@ export default class HomeController {
     //   return container.resolve(AiService);
     // };
 
-    route.get("/", async (_req: Request<{}, {}, CreatePunParams>, res) => {
+    route.get("/", async (_req, res) => {
       // const service = getService(res);
       // const result = await service.createPun(req.body);
       // res.send(result);
-      res.render("index", { title: "Open the pod bay doors, HAL" });
+      res.render("index", { title: "Example Title" });
+    });
+
+    route.post("/clicked", async (req: Request<{}, {}, ClickedParams>, res) => {
+      // const service = getService(res);
+      // const result = await service.createPun(req.body);
+      // res.send(result);
+      res.render("clicked", { name: req.body.name });
     });
   }
 }

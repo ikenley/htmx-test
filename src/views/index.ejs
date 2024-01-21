@@ -3,14 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <title>Example</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Lora:400,400italic"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link href="./css/style.css" rel="stylesheet" />
+    <script src="/htmx.min.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
+    <form>
+      <label for="name">Name</label><input id="name" name="name" />
+      <div>
+        <button
+          type="submit"
+          hx-post="/htmx/clicked"
+          hx-swap="outerHTML"
+          hx-target="#result"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+    <div id="result"></div>
   </body>
 </html>

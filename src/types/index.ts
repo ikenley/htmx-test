@@ -1,5 +1,5 @@
-export type CreatePunParams = {
-  prompt: string;
+export type ClickedParams = {
+  name: string;
 };
 
 export type CreatePunResponse = {
