@@ -15,7 +15,7 @@ COPY . .
 RUN npm run build
 
 # This will use a minimal base image for the runtime
-FROM node:22.4.1-alpine
+FROM node:22.14.0-alpine
 
 WORKDIR /usr/src/app
 
